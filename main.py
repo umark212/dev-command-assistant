@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 def show_menu():
@@ -33,6 +34,21 @@ def show_current_directory():
     current = Path.cwd()
     print(f"\nCurrent directory:\n{current}")
 
+def create_project():
+    project_name = input("Enter project name: ")
+
+    project = Path(project_name)
+    project.mkdir(exist_ok=True)
+
+    (project / "src").mkdir(exist_ok=True)
+    (project / "docs").mkdir(exist_ok=True)
+    (project / "tests").mkdir(exist_ok=True)
+
+    (project / "README.md").touch()
+    (project / ".gitignore").touch()
+
+    print(f"\nProject '{project_name}' created successfully")
+
 def main():
     while True:
         show_menu()
@@ -41,6 +57,9 @@ def main():
 
         if choice == "1":
             show_current_directory()
+
+        elif choice == "2":
+            create_project()    
         
         elif choice == "5":
             print("Rushmore Offline")
