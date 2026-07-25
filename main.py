@@ -44,7 +44,12 @@ def create_project():
     (project / "docs").mkdir(exist_ok=True)
     (project / "tests").mkdir(exist_ok=True)
 
-    (project / "README.md").touch()
+    readme = project / "README.md"
+
+    with open(readme, "w") as file:
+        file.write(f"# {project_name}\n\n")
+        file.write("Project created using Developer Command Assistant.\n")
+    
     (project / ".gitignore").touch()
 
     print(f"\nProject '{project_name}' created successfully")
