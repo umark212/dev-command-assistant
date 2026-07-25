@@ -1,3 +1,5 @@
+from pathlib import Path
+
 def show_menu():
     print("\n===================================")
     print("@@@@@@@@%%%***+------------==+#%@@@")
@@ -27,13 +29,20 @@ def show_menu():
     print("4. Count words in a text file")
     print("5. Exit")
 
+def show_current_directory():
+    current = Path.cwd()
+    print(f"\nCurrent directory:\n{current}")
+
 def main():
     while True:
         show_menu()
 
         choice = input("\nChoose an option: ")
 
-        if choice == "5":
+        if choice == "1":
+            show_current_directory()
+        
+        elif choice == "5":
             print("Rushmore Offline")
             break
 
