@@ -1,3 +1,4 @@
+import shutil   #python library for moving and copying files
 import os
 from pathlib import Path
 
@@ -54,6 +55,44 @@ def create_project():
 
     print(f"\nProject '{project_name}' created successfully")
 
+def organise_files():
+    folder = input("Enter folder path: ")
+    folder = Path(folder)
+
+    if not folder.exists():
+        print("Folder not found.")
+        return
+
+    categories = {           #dictionary use
+        ".jpg": "Images",
+        ".jpeg": "Images",
+        ".png": "Images",    #eg. if file png put in images folder
+
+        ".pdf": "Documents",
+        ".txt": "Documents",
+        ".docx": "Documents",
+
+        ".mp3": "Audio",
+
+        ".mp4": "Videos"
+    }
+
+    for file in folder.iterdir():     #look at everything inside folder
+
+        if file.is_file():            #only files not other folders
+
+            extension = file.suffix.lower()  #eg. PDF = .pdf to match dictionary
+
+            if extension in categories:
+
+                destination = folder / categories[extension]  # / means it joins new folder and eg. categories[.jpg] = images from dictionary, to create images folder
+
+                destination.mkdir(exist_ok=True)   #mkdir is make directory if it doesnt already exist
+
+                shutil.move(str(file), str(destination / file.name))  #move file into the folder, using str so shutil.move accepts it always
+
+    print("Files organised successfully!")
+
 def main():
     while True:
         show_menu()
@@ -64,7 +103,10 @@ def main():
             show_current_directory()
 
         elif choice == "2":
-            create_project()    
+            create_project()
+
+        elif choice == "3":
+            organise_files()
         
         elif choice == "5":
             print("Rushmore Offline")
