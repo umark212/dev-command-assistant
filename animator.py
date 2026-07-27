@@ -12,7 +12,7 @@ class AsciiAnimator:
         self.animation = [
             FACE_1,
             FACE_2,
-            FACE_3
+            FACE_3,
             FACE_4
         ]
 

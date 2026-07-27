@@ -1,5 +1,5 @@
 from assistant import DeveloperAssistant
-
+from animator import AsciiAnimator
 
 assistant = DeveloperAssistant()
 animator = AsciiAnimator()
