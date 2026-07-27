@@ -2,29 +2,12 @@ from assistant import DeveloperAssistant
 
 
 assistant = DeveloperAssistant()
-
+animator = AsciiAnimator()
 
 
 def show_menu():
     print("\n===================================")
-    print("         ~++^^><)<()()))<>^*^+*   ")
-    print("         :+++^^<<((((())<>^^*==   ")
-    print("          =+*>>)][[[]((())<<^^+   ")
-    print("        : :~++*+<([*())*>>**+==   ")
-    print("           +**>)#%)^<##][<)(<^<^  ")
-    print("         ~.:*<](]>>(^)}}})><>>=+  ")
-    print("         .   :     ~.    +>-~*-=  ")
-    print("          :~ -*>-~=**- >>: :=+*   ")
-    print("           =}}{^+)[([})(]<)[<~:   ")
-    print("            -=~~--)}]===~>+=~=    ")
-    print("           : :*-==]{)+==>+===.    ")
-    print("           -+.*=  :~- *((=^*=:    ")
-    print("            +>= =   >}>*^<^+)+(<  ")
-    print("     <<<     .<= *^<((((>> ~(<<)<~")
-    print("    +***:      ~=*)()>^^-  ~*+***:")
-    print("  -><<><<       ~><<<>+  :+^^*<>>-")
-    print(" +*^^**^^+               -~-=^^^=:")
-    print(" ==+=~~==*+            :  -=+++~=:")
+    animator.display()
     print("Rushmore: Developer Command Assistant")
     print("===================================")
     print("1. Show current directory")
