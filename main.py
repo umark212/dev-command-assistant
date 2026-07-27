@@ -24,16 +24,16 @@ while True:
     choice = input("\nChoose an option: ")
 
     if choice == "1":
-        assistant.show_current_directory()
+        assistant.files.show_current_directory()
 
     elif choice == "2":
-        assistant.create_project()
+        assistant.projects.create_project()
 
     elif choice == "3":
-        assistant.organise_files()
+        assistant.files.organise_files()
 
     elif choice == "4":
-        assistant.count_words()
+        assistant.text.count_words()
                                         
     elif choice == "5":
         print("Rushmore Offline")
