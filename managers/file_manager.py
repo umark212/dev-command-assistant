@@ -52,9 +52,9 @@ class FileManager:
 
     def search_file(self):
 
-        filename = input("Enter filename to search for: ")
+        filename = input("Enter filename to search for: ").strip() #strip useful for searching because removes whitespaces
         
-        start = input("Folder to search (leave blank for current directory): ")
+        start = input("Folder to search (leave blank for current directory): ").strip()
 
         if start:
             root = Path(start)
@@ -70,6 +70,12 @@ class FileManager:
 
         for file in root.rglob("*"): #rgblob useful pathlib feature, lets us recursively walk each folder, all files (*)
             if file.is_file():
-                if filename.lower() in file.name.lower(): #searches regardless of capitilization
+                if filename.lower() in file.name.lower(): #case insensitive searching: searches regardless of capitilization
                     matches.append(file)  #appends to list we created
                     
+        if matches:
+            print(f"\nFound {len(matches)} matches:\n")
+            for match in matches:
+                print(match)
+        else:
+            print("\nNo matching files found.")
