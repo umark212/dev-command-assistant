@@ -48,6 +48,9 @@ while True:
 
     elif choice == "3":
         assistant.organise_files()
+
+    elif choice == "4":
+        assistant.count_words()
                                         
     elif choice == "5":
         print("Rushmore Offline")
