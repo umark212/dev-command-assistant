@@ -60,3 +60,16 @@ class FileManager:
             root = Path(start)
         else:
             root = Path.cwd()
+
+
+        if not root.exists():
+            print("Folder does not exist.")
+            return
+
+        matches = []
+
+        for file in root.rglob("*"): #rgblob useful pathlib feature, lets us recursively walk each folder, all files (*)
+            if file.is_file():
+                if filename.lower() in file.name.lower(): #searches regardless of capitilization
+                    matches.append(file)  #appends to list we created
+                    
