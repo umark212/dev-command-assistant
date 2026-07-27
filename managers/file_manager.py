@@ -45,3 +45,18 @@ class FileManager:
                     shutil.move(str(file), str(destination / file.name))  #move file into the folder, using str so shutil.move accepts it always
 
         print("Files organised successfully!")
+
+
+
+
+
+    def search_file(self):
+
+        filename = input("Enter filename to search for: ")
+        
+        start = input("Folder to search (leave blank for current directory): ")
+
+        if start:
+            root = Path(start)
+        else:
+            root = Path.cwd()
