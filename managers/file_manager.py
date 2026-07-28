@@ -79,3 +79,20 @@ class FileManager:
                 print(match)
         else:
             print("\nNo matching files found.")
+
+
+    def folder_statistics(self):
+        folder = input("Folder (leave blank for current directory): ").strip()
+
+        if folder:
+            root = Path(folder)
+        else:
+            root = Path.cwd()
+
+        if not root.exists():
+            print("Folder does not exist.")
+            return
+
+        if not root.is_dir():
+            print("That is not a folder.")
+            return
