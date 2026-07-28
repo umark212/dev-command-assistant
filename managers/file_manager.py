@@ -107,7 +107,7 @@ class FileManager:
             if item.is_file:
                 total_files += 1
                 size = item.stat().st_size #stat() gets metadata from os and st_size i got from path library to get size in bytes
-                total_size += size
+                total_size += size  
 
                 if size > largest_size:  #keeps track of maximum seen so far
                     largest_size = size
@@ -121,5 +121,16 @@ class FileManager:
                 average_size = total_size / total_files
             else:
                 average_size = 0
+
+
                     
-        
+    def format_size(self, size):   #to convert the sizes metadata into readable format
+        units = ["B", "KB", "MB", "GB", "TB"]
+
+        for unit in units:
+            if size < 1024:
+                return f"{size:.2f} {unit}" #more formatting, & keep dividing by 1024 until small enough
+
+            size /= 1024
+
+            return f"{size:.2f} PB"
