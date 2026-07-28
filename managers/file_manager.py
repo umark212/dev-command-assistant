@@ -123,6 +123,18 @@ class FileManager:
                 average_size = 0
 
 
+        print("\n========== Folder Statistics ==========\n")
+        print(f"Folder: {root}")
+        print(f"\nFiles: {total_files}")
+        print(f"Folders: {total_folders}")
+        print(f"\nTotal Size: {self.format_size(total_size)}")
+        print(f"Average File Size: {self.format_size(average_size)}")
+        
+        if largest_file:
+            print(f"\nLargest File: {largest_file.name}")
+            print(f"Largest Size: {self.format_size(largest_size)}")
+
+
                     
     def format_size(self, size):   #to convert the sizes metadata into readable format
         units = ["B", "KB", "MB", "GB", "TB"]
@@ -133,4 +145,4 @@ class FileManager:
 
             size /= 1024
 
-            return f"{size:.2f} PB"
+        return f"{size:.2f} PB"
