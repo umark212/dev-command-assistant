@@ -21,6 +21,8 @@ class TextManager:
             print(f"Characters: {characters}")
             print(f"Lines: {lines}")
 
+            self.logger.log(f"Counted words in '{file_name}'")
+        
         except FileNotFoundError:
             print("File not found.")      #print these messages instead
 

@@ -22,3 +22,5 @@ class ProjectManager:
         (project / ".gitignore").touch()
 
         print(f"\nProject '{project_name}' created successfully")
+
+        self.logger.log(f"Created project '{project_name}'")

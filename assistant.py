@@ -3,7 +3,7 @@
 from managers.project_manager import ProjectManager
 from managers.file_manager import FileManager
 from managers.text_manager import TextManager
-
+from logger import Logger
 
 class DeveloperAssistant:
 
@@ -12,7 +12,7 @@ class DeveloperAssistant:
         self.projects = ProjectManager()
         self.files = FileManager()
         self.text = TextManager()
-
+        self.logger = Logger()
     
 
 

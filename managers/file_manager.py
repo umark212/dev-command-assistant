@@ -33,19 +33,17 @@ class FileManager:
         for file in folder.iterdir():     #look at everything inside folder
 
             if file.is_file():            #only files not other folders
-
                 extension = file.suffix.lower()  #eg. PDF = .pdf to match dictionary
 
                 if extension in categories:
-
                     destination = folder / categories[extension]  # / means it joins new folder and eg. categories[.jpg] = images from dictionary, to create images folder
 
                     destination.mkdir(exist_ok=True)   #mkdir is make directory if it doesnt already exist
-
                     shutil.move(str(file), str(destination / file.name))  #move file into the folder, using str so shutil.move accepts it always
 
         print("Files organised successfully!")
-
+        
+        self.logger.log(f"Organised files in {folder}")
 
 
 
@@ -77,6 +75,7 @@ class FileManager:
             print(f"\nFound {len(matches)} matches:\n")
             for match in matches:
                 print(match)
+            self.logger.log(f"Searched for '{filename}'")
         else:
             print("\nNo matching files found.")
 
@@ -133,6 +132,8 @@ class FileManager:
         if largest_file:
             print(f"\nLargest File: {largest_file.name}")
             print(f"Largest Size: {self.format_size(largest_size)}")
+
+        self.logger.log(f"Generated statistics for {root}")
 
 
                     
