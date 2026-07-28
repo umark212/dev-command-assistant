@@ -96,3 +96,30 @@ class FileManager:
         if not root.is_dir():
             print("That is not a folder.")
             return
+
+        total_files = 0  #create counters
+        total_folders = 0
+        total_size = 0
+        largest_file = None
+        largest_size = 0
+
+        for item in root.rglob("*"):
+            if item.is_file:
+                total_files += 1
+                size = item.stat().st_size #stat() gets metadata from os and st_size i got from path library to get size in bytes
+                total_size += size
+
+                if size > largest_size:  #keeps track of maximum seen so far
+                    largest_size = size
+                    largest_file = item
+
+            elif item.is_dir():
+                total_folders += 1
+
+            #get average
+            if total_files > 0:
+                average_size = total_size / total_files
+            else:
+                average_size = 0
+                    
+        
