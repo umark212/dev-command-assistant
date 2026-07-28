@@ -15,7 +15,8 @@ def show_menu():
     print("3. Organise files")
     print("4. Count words in a text file")
     print("5. Search for file")
-    print("6. Exit")
+    print("6. Folder Statistics")
+    print("7. Exit")
 
 
 
@@ -37,9 +38,12 @@ while True:
         assistant.text.count_words()
                                         
     elif choice == "5":
-    assistant.files.search_file()
+        assistant.files.search_file()
 
     elif choice == "6":
+        assistant.files.folder_statistics()
+
+    elif choice == "7":
         print("Rushmore Offline")
         break
     
