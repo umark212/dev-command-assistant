@@ -1,6 +1,9 @@
 from pathlib import Path
 
 class TextManager:
+    def __init__(self, logger):
+        self.logger = logger
+    
     def count_words(self):
 
         file_path = input("Enter the path to a text file: ")
@@ -21,7 +24,7 @@ class TextManager:
             print(f"Characters: {characters}")
             print(f"Lines: {lines}")
 
-            self.logger.log(f"Counted words in '{file_name}'")
+            self.logger.log(f"Counted words in '{file_path}'")
         
         except FileNotFoundError:
             print("File not found.")      #print these messages instead

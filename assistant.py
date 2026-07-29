@@ -9,10 +9,12 @@ class DeveloperAssistant:
 
     def __init__(self):  #because we're accessing other classes
 
-        self.projects = ProjectManager()
-        self.files = FileManager()
-        self.text = TextManager()
         self.logger = Logger()
+
+        self.projects = ProjectManager(self.logger)
+        self.files = FileManager(self.logger)
+        self.text = TextManager(self.logger)
+        
     
 
 
