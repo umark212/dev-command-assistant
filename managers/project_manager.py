@@ -1,7 +1,11 @@
 from pathlib import Path
-
+from config_manager import ConfigManager
 
 class ProjectManager:
+
+    def __init__(self, logger):
+        self.logger = logger
+        self.config = ConfigManager()
 
     def create_project(self):
         project_name = input("Enter project name: ")
