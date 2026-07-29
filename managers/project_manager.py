@@ -10,7 +10,12 @@ class ProjectManager:
     def create_project(self):
         project_name = input("Enter project name: ")
 
-        project = Path(project_name)
+        project_directory = self.config.get("default_project_directory")
+
+        if not project_directory:            #added json configuration so project created in current directory or configured folder
+            project_directory = Path.cwd()
+
+        project = Path(project_directory) / project_name
         project.mkdir(exist_ok=True)
 
         (project / "src").mkdir(exist_ok=True)
