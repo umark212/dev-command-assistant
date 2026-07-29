@@ -1,11 +1,13 @@
 from pathlib import Path
 from config_manager import ConfigManager
+from managers.git_manager import GitManager
 
 class ProjectManager:
 
     def __init__(self, logger):
         self.logger = logger
         self.config = ConfigManager()
+        self.git = GitManager()
 
     def create_project(self):
         project_name = input("Enter project name: ")
@@ -33,3 +35,7 @@ class ProjectManager:
         print(f"\nProject '{project_name}' created successfully")
 
         self.logger.log(f"Created project '{project_name}'")
+
+
+        if self.config.get("auto_git_init"):  #checks through config json file whether rushmore should initialise git automatically
+            self.git.initialise(project)
