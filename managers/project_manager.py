@@ -38,5 +38,7 @@ class ProjectManager:
 
 
         if self.config.get("auto_git_init"):  #checks through config json file whether rushmore should initialise git automatically
-            self.git.initialise(project)
-            self.logger.log(f"Initialised Git repository for '{project_name}'")
+            git_created = self.git.initialise(project) #t or f
+
+                
+        self.logger.log(f"Initialised Git repository for '{project_name}'")
