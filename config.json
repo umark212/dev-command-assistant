@@ -1,0 +1,8 @@
+{
+    "default_project_directory": "",
+    "default_template": "python",
+    "auto_git_init": true,
+    "create_readme": true,
+    "create_gitignore": true,
+    "activity_log": "activity.log"
+}
