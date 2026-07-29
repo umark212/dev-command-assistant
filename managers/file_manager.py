@@ -1,7 +1,12 @@
 from pathlib import Path
 import shutil #moves the files
 
+
 class FileManager:
+    def __init__(self, logger):
+        self.logger = logger
+
+    
     def show_current_directory(self):
         current = Path.cwd()
         print(f"\nCurrent directory:\n{current}")
